@@ -3,38 +3,30 @@ int main()
 {
     int n,i,j,k,t,m;
     scanf("%d",&n);
-    int u[n],int p[n];
+    int u[n],p[n];
     u[0]=1;
     u[1]=2;
     u[2]=3;
     u[3]=4;
     u[4]=5;
     k=5;
-    for(i=6;i<n*2;i++)
+    for(i=6;i<n*n;i++)
     {
-        t=0;
-        m=0;
-        for(j=2;i!=1;j++)
+        while(i!=1)
         {
-            while(i%j==0)
+            if(i%2==0)
             {
-                p[t]=j;
-                t++;
-                m++;
-                i=i/j;
+                i=i/2;
+            }
+            else if(i%3==0)
+            {
+                i=i/3;
+            }
+            else if(i%5==0)
+            {
+                i=i/5;
             }
         }
-        t=0;
-        for(j=0;j<m;j++)
-        {
-            if(t==0 && (p[j]==2 || p[j]==3 ||p[j]==5) )
-            {
-                u[k]=i;
-                k++;
-                t=1;
-            }
-        }
-        if()
     }
     printf("%d",u[n-1]);
 
