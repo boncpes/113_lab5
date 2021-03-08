@@ -1,34 +1,49 @@
 #include<stdio.h>
 int main()
 {
-    int n,i,j,k,t,m;
+    int n,i,j,k,t,c;
     scanf("%d",&n);
-    int u[n],p[n];
+    int u[n];
     u[0]=1;
-    u[1]=2;
-    u[2]=3;
-    u[3]=4;
-    u[4]=5;
-    k=5;
-    for(i=6;i<n*n;i++)
+    k=1;
+    for(i=2;i<n*n;)
     {
-        while(i!=1)
+        if(k==n)
         {
-            if(i%2==0)
+            break;
+        }
+        t=i;
+        while(t!=1)
+        {
+            if(t%2==0)
             {
-                i=i/2;
+                t=t/2;
             }
-            else if(i%3==0)
+            else if(t%3==0)
             {
-                i=i/3;
+                t=t/3;
             }
-            else if(i%5==0)
+            else if(t%5==0)
             {
-                i=i/5;
+                t=t/5;
             }
+            else
+            {
+                c=1;
+                break;
+            }
+        }
+        if(c==0)
+        {
+            u[k]=i;
+            k++;
+            i++;
+        }
+        else if(c==1)
+        {
+            i++;
         }
     }
     printf("%d",u[n-1]);
-
     return 0;
 }
