@@ -5,7 +5,7 @@ int main()
 {
     int n,i,j,k;
     scanf("%d",&n);
-    int c[n]={0};
+    int c[10]={0};
     char w[n];
     char *pch;
     scanf(" %[^\n]s",w);
@@ -15,16 +15,18 @@ int main()
     {
         if(!(strcmp(pch,"+")))
         {
-            b[i-2]+=b[i-1];
-
+            c[i-2]+=c[i-1];
+            i--;
         }
-        else if(!(strcmp(num,"-")))
+        else if(!(strcmp(pch,"-")))
         {
-
+            c[i-2]-=c[i-1];
+            i--;
         }
-        else if(!(strcmp(num,"*")))
+        else if(!(strcmp(pch,"*")))
         {
-
+            c[i-2]*=c[i-1];
+            i--;
         }
         else
         {
@@ -33,5 +35,6 @@ int main()
         }
         pch = strtok(NULL," ");
     }
+    printf("%d",c[0]);
     return 0;
 }
