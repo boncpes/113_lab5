@@ -27,21 +27,21 @@ int main()
 {
     int n,i,j,k,t,c;
     scanf("%d",&n);
-    for(i=1; i<n;)
+    int u[10000]={0};
+    u[0]=1;
+    t=1;
+    for(j=2; j<n*n*2; j++)
     {
-        for(j=2; j<n*n; j++)
+        c=check(j);
+        if(c==0)
         {
-            c=check(j);
-            if(c==0)
-            {
-                printf("%d ",j);
-                i++;
-            }
-            else if(c==1)
-            {
-            }
+            u[t]=j;
+            t++;
         }
-
+        else if(c==1)
+        {
+        }
     }
+    printf("%d",u[n-1]);
     return 0;
 }
